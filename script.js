@@ -1,14 +1,14 @@
 const valid_input = ["rock", "paper", "scissors"];
 
 function get_computer_choice() {
-    let random_choice = Math.floor(Math.random() * 3) + 1;
+    return random_choice = Math.floor(Math.random() * 3);
 
     switch (random_choice) {
-        case 1:
+        case 0:
             return "Rock!";
-        case 2:
+        case 1:
             return "Paper!";
-        case 3:
+        case 2:
             return "Scissors!";
     };
 };
@@ -16,8 +16,27 @@ function get_computer_choice() {
 function get_human_choice() {
     let human_input = prompt("Rock, Paper, or Scissors?");
 
-    return human_input
+    let human_choice = valid_input.indexOf(human_input);
+
+    if (human_choice < 0) {
+        for (; human_choice < 0;) {
+            let human_input = prompt("invalid input, try again");
+            human_choice = valid_input.indexOf(human_input);
+        };
+    };
+    
+    return human_choice;
 };
 
 let human_score = 0
 let computer_score = 0
+
+function play_round(human_choice, computer_choice) {
+    
+}
+
+for (let games = 0; games < 5; games++) {
+    let human_choice = get_human_choice();
+    let computer_choice = get_computer_choice();
+    play_round(human_choice, computer_choice);
+}
