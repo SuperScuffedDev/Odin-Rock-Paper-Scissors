@@ -1,23 +1,28 @@
-const valid_input = ["rock", "paper", "scissors"];
+const moves = document.querySelectorAll(".moves");
 
 function get_computer_choice() {
-    let random_choice = Math.floor(Math.random() * 3);
+    const array_moves = ["rock", "paper", "scissors"]
+    const random_choice = Math.floor(Math.random() * 3);
     return random_choice
 };
 
-function get_human_choice() {
-    let human_input = prompt("Rock, Paper, or Scissors?");
+let current_human_choice = undefined
 
-    let human_choice = valid_input.indexOf(human_input);
-
-    if (human_choice < 0) {
-        for (; human_choice < 0;) {
-            let human_input = prompt("invalid input, try again :(");
-            human_choice = valid_input.indexOf(human_input);
-        };
+function get_human_choice(e) {
+    const target = e.target;
+    switch (target.id) {
+        case "rock":
+            target.style.borderColor = "green"
+            current_human_choice = "rock"
+        case "paper":
+            target.style.borderColor = "green"
+            current_human_choice = "paper"
+        case "scissors":
+            target.style.borderColor = "green"
+            current_human_choice = "scissors"
+        default:
+            console.log("wtf");
     };
-    
-    return human_choice;
 };
 
 let human_score = 0
@@ -54,4 +59,6 @@ function play_game() {
     };
 };
 
-play_game()
+for (move of moves) {
+    move.addEventListener("click", get_human_choice);
+}

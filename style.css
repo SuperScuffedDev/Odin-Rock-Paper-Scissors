@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+#title {
+    font-size: 50px;
+}
+
+.moves img {
+   width: 200px;
+   height: 200px;
+   border-radius: 50px;
+   border: 5px solid black;
+}
+
+#moves-container {
+    display: flex;
+    gap: 10px;
+
+    margin-block-start: 200px;
+}
+
+.score {
+    margin: 0px;
+    border-radius: 20px 20px 0px 0px;
+    padding: 5px;
+    background-color: rgb(96, 106, 186);
+    font-size: 30px;
+    border: 5px, solid, black;
+    border-bottom: 0px;
+}
+
+#tracker {
+    border-radius: 20px;
+}
+
+#confirm {
+    width: 300px;
+    height: 50px;
+    margin-top: 50px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+    font-weight: 600;
+}

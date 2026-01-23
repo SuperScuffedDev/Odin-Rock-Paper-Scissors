@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body style="background-color: rgb(48, 60, 120);">
+    <h1 id="title">Rock Paper Scissors</h1>
+    <h2 class="score">SCORE</h2>
+    <p class="score" id="tracker">YOU: 0 | CLANKER: 0</p>
+    <p>waiting for your move...</p>
+    <div id="moves-container">
+        <div class="moves">
+            <img id="rock" src="./images/rock.jpeg" draggable="false" width ="750" height="750" alt="rock">
+        </div>
+        <div class="moves">
+            <img id="paper" src="./images/paper.jpeg" draggable="false" width="750" height="750" alt="paper">
+        </div>
+        <div class="moves">
+            <img id="scissors" src="./images/scissors.jpeg" draggable="false" width="750" height="750" alt="paper">
+        </div>
+    </div>
+
+    <button id="confirm">Go!</button>
+
     <script src="script.js" defer></script>
 </body>
 </html>
