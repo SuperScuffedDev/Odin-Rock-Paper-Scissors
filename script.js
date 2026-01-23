@@ -1,12 +1,16 @@
 const moves = document.querySelectorAll(".moves");
+const confirm_button = document.querySelector("#confirm");
+const log = document.querySelector("#log");
+
+let human_score = 0
+let computer_score = 0
+let human_choice = undefined
 
 function get_computer_choice() {
     const array_moves = ["rock", "paper", "scissors"]
     const random_choice = Math.floor(Math.random() * 3);
-    return random_choice
+    return array_moves[random_choice]
 };
-
-let current_human_choice = undefined
 
 function get_human_choice(e) {
     const target = e.target;
@@ -18,37 +22,34 @@ function get_human_choice(e) {
     switch (target.id) {
         case "rock":
             target.style.borderColor = "green";
-            current_human_choice = "rock";
+            human_choice = "rock";
             break;
         case "paper":
             target.style.borderColor = "green";
-            current_human_choice = "paper";
+            human_choice = "paper";
             break;
         case "scissors":
             target.style.borderColor = "green";
-            current_human_choice = "scissors";
+            human_choice = "scissors";
             break;
         default:
             console.log("wtf");
     };
 };
 
-let human_score = 0
-let computer_score = 0
-
-function play_round(human_choice, computer_choice) {
-    console.log(`You: ${valid_input[human_choice]} | Computer: ${valid_input[computer_choice]}`)
-
+function play_round() {
+    const computer_choice = get_computer_choice();
+    console.log(`you ${human_choice} cpu ${computer_choice}`);
     if (human_choice == computer_choice) {
         human_score += 1
         computer_score += 1
-        console.log(`Tie! You both get a point. Score(${human_score} - ${computer_score})`)
-    } else if (human_choice == 0 && computer_choice == 1 || human_choice == 1 && computer_choice == 2 || human_choice == 2 && computer_choice == 0) {
+        log.textContent = "Tie! You both get a point!"
+    } else if (human_choice == "rock" && computer_choice == "paper" || human_choice == "paper" && computer_choice == "scissors" || human_choice == "scissors" && computer_choice == "rock") {
         computer_score += 1
-        console.log(`Computer wins this round! Score(${human_score} - ${computer_score})`)
-    } else if (human_choice == 1 && computer_choice == 0 || human_choice == 2 && computer_choice == 1 || human_choice == 0 && computer_choice == 2) {
+        log.textContent = "The clanker wins this round!"
+    } else if (human_choice == "paper" && computer_choice == "rock" || human_choice == "scissors" && computer_choice == "paper" || human_choice == "rock" && computer_choice == "scissors") {
         human_score += 1
-        console.log(`You wins this round! Score(${human_score} - ${computer_score})`)
+        log.textContent = "You wins this round!"
     };
 };
 function play_game() {
@@ -70,3 +71,5 @@ function play_game() {
 for (move of moves) {
     move.addEventListener("click", get_human_choice);
 }
+
+confirm_button.addEventListener("click", play_round)
