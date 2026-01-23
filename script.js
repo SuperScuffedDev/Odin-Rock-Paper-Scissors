@@ -10,16 +10,24 @@ let current_human_choice = undefined
 
 function get_human_choice(e) {
     const target = e.target;
+
+     moves.forEach((move) => {
+        move.querySelector("img").style.borderColor = "black";
+    });
+
     switch (target.id) {
         case "rock":
-            target.style.borderColor = "green"
-            current_human_choice = "rock"
+            target.style.borderColor = "green";
+            current_human_choice = "rock";
+            break;
         case "paper":
-            target.style.borderColor = "green"
-            current_human_choice = "paper"
+            target.style.borderColor = "green";
+            current_human_choice = "paper";
+            break;
         case "scissors":
-            target.style.borderColor = "green"
-            current_human_choice = "scissors"
+            target.style.borderColor = "green";
+            current_human_choice = "scissors";
+            break;
         default:
             console.log("wtf");
     };
