@@ -1,5 +1,6 @@
 const moves = document.querySelectorAll(".moves");
 const confirm_button = document.querySelector("#confirm");
+const tracker = document.querySelector("#tracker")
 const computer_log = document.querySelector("#computer-log")
 const log = document.querySelector("#log");
 
@@ -44,14 +45,17 @@ function play_round() {
     if (human_choice == computer_choice) {
         human_score += 1
         computer_score += 1
+        tracker.textContent = `YOU: ${human_score} | CLANKER: ${computer_score}`
         computer_log.textContent = `Clanker chose ${computer_choice.toUpperCase()}`
         log.textContent = "Tie! You both get a point!"
     } else if (human_choice == "rock" && computer_choice == "paper" || human_choice == "paper" && computer_choice == "scissors" || human_choice == "scissors" && computer_choice == "rock") {
         computer_score += 1
+        tracker.textContent = `YOU: ${human_score} | CLANKER: ${computer_score}`
         computer_log.textContent = `Clanker chose ${computer_choice.toUpperCase()}`
         log.textContent = "The clanker wins this round!"
     } else if (human_choice == "paper" && computer_choice == "rock" || human_choice == "scissors" && computer_choice == "paper" || human_choice == "rock" && computer_choice == "scissors") {
         human_score += 1
+        tracker.textContent = `YOU: ${human_score} | CLANKER: ${computer_score}`
         computer_log.textContent = `Clanker chose ${computer_choice.toUpperCase()}`
         log.textContent = "You wins this round!"
     };
